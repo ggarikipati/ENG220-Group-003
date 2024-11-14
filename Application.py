@@ -6,8 +6,8 @@ st.title('CSV Plotting App')
 
 # Load CSV file named "Joey"
 try:
-    df = pd.read_csv("Data.csv")
-    st.write("Data from Data.csv:")
+    df = pd.read_csv("data_to_send.csv")
+    st.write("Data from data_to_send.csv:")
     st.write(df)
     
     # Dropdowns for X and Y axes selection
