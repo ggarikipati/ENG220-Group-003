@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Title of the app
-st.title('CSV Plotting App')
+st.title('McClure Water Resevoir Level')
 
 # Load CSV file named "Joey"
 try:
