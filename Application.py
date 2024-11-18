@@ -30,6 +30,11 @@ try:
     st.image("OIP.jpg", width=x)
     st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
 
+    with open('example.txt', 'r') as file:
+        content = file.read()
+    st.write(content)
+
+    
     #sample code I stole from the docs:
     # Initialize chat history
     if "messages" not in st.session_state:
