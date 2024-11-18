@@ -10,6 +10,8 @@ try:
     st.write("Data from data_to_send.csv:")
     st.write(df)
     x = st.slider('AAAAAAAHHHHHH') 
+    st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
+
     # Dropdowns for X and Y axes selection
     columns = df.columns.tolist()
     x_axis = st.selectbox('Select column for X-axis', columns)
@@ -24,6 +26,5 @@ try:
     elif chart_type == 'Line Chart':
         st.line_chart(df[[x_axis, y_axis]].set_index(x_axis))
 
-    st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
 except FileNotFoundError:
     st.error("The file 'Joey.csv' was not found. Please ensure the file is available in the directory.")
