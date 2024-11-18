@@ -1,6 +1,21 @@
 import streamlit as st
 import pandas as pd
 
+#stolen function
+def response_generator():
+    response = random.choice(
+        [
+            "Hello there! How can I assist you today?",
+            "Hi, human! Is there anything I can help you with?",
+            "Do you need help?",
+        ]
+    )
+    for word in response.split():
+        yield word + " "
+        time.sleep(0.05)
+
+
+
 # Title of the app
 st.title('McClure Water Resevoir Level')
 
@@ -30,11 +45,9 @@ try:
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
     
-        response = f"Ramiro Jordan: {prompt}"
-        # Display assistant response in chat message container
         with st.chat_message("assistant"):
-            st.markdown(response)
-        # Add assistant response to chat history
+            response = st.write_stream(response_generator())
+         # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
         response = f"Chadi Harmouche: c'mon guys"
         # Display assistant response in chat message container
@@ -42,7 +55,7 @@ try:
             st.markdown(response)
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
-
+    # end sample code I stole
 
     
     # Dropdowns for X and Y axes selection
