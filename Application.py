@@ -66,5 +66,9 @@ try:
     elif chart_type == 'Line Chart':
         st.line_chart(df[[x_axis, y_axis]].set_index(x_axis))
 
+    with open("example.txt", "w") as file:
+        # Write the string to the file
+        file.write("hey")
+
 except FileNotFoundError:
     st.error("The file 'Joey.csv' was not found. Please ensure the file is available in the directory.")
