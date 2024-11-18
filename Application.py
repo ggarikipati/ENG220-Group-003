@@ -9,7 +9,7 @@ try:
     df = pd.read_csv("data_to_send.csv")
     st.write("Data from data_to_send.csv:")
     st.write(df)
-    x = st.slider(';)', min_value=10, max_value=100) 
+    x = st.slider(';)', min_value=10, max_value=500) 
     st.image("OIP.jpg", width=x)
     st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
 
