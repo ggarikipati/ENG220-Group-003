@@ -51,6 +51,10 @@ try:
             response = st.write_stream(response_generator())
          # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
+            
+        with open("example.txt", "w") as file:
+            # Write the string to the file
+            file.write(prompt)
     
     # Dropdowns for X and Y axes selection
     columns = df.columns.tolist()
@@ -66,9 +70,7 @@ try:
     elif chart_type == 'Line Chart':
         st.line_chart(df[[x_axis, y_axis]].set_index(x_axis))
 
-    with open("example.txt", "w") as file:
-        # Write the string to the file
-        file.write(prompt)
+
 
 except FileNotFoundError:
     st.error("The file 'Joey.csv' was not found. Please ensure the file is available in the directory.")
