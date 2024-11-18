@@ -68,7 +68,7 @@ try:
 
     with open("example.txt", "w") as file:
         # Write the string to the file
-        file.write("hey")
+        file.write(prompt)
 
 except FileNotFoundError:
     st.error("The file 'Joey.csv' was not found. Please ensure the file is available in the directory.")
