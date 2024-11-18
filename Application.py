@@ -7,9 +7,9 @@ import time
 def response_generator():
     response = random.choice(
         [
-            "Hello there! How can I assist you today?",
-            "Hi, human! Is there anything I can help you with?",
-            "Do you need help?",
+            "Ramiro Jordan: The Data",
+            "Ramiro Jordan: (smiles deviously)",
+            "Ramiro Jordan: Alright more Packbacks, due today.",
         ]
     )
     for word in response.split():
