@@ -9,8 +9,8 @@ try:
     df = pd.read_csv("data_to_send.csv")
     st.write("Data from data_to_send.csv:")
     st.write(df)
-    x = st.slider('AAAAAAAHHHHHH') 
-    st.image("og5imxx0a0k81.jpg", width=x)
+    x = st.slider(';)', min_value=10, max_value=100) 
+    st.image("OIP.jpg", width=x)
     st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
 
     # Dropdowns for X and Y axes selection
