@@ -30,13 +30,21 @@ try:
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
     
-        response = f"Echo: {prompt}"
+        response = f"Ramiro Jordan: {prompt}"
+        # Display assistant response in chat message container
+        with st.chat_message("assistant"):
+            st.markdown(response)
+        # Add assistant response to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
+        response = f"Chadi Harmouche: c'mon guys"
         # Display assistant response in chat message container
         with st.chat_message("assistant"):
             st.markdown(response)
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
 
+
+    
     # Dropdowns for X and Y axes selection
     columns = df.columns.tolist()
     x_axis = st.selectbox('Select column for X-axis', columns)
