@@ -23,8 +23,8 @@ st.title('McClure Water Resevoir Level')
 
 # Load CSV file named "Joey"
 try:
-    df = pd.read_csv("data_to_send.csv")
-    st.write("Data from data_to_send.csv:")
+    df = pd.read_csv("extracted_data.csv")
+    st.write("Data from extracted_data.csv:")
     st.write(df)
     x = st.slider(';)', min_value=10, max_value=500) 
     st.image("OIP.jpg", width=x)
