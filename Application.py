@@ -9,7 +9,7 @@ try:
     df = pd.read_csv("data_to_send.csv")
     st.write("Data from data_to_send.csv:")
     st.write(df)
-    x = st.slider('x') 
+    x = st.slider('AAAAAAAHHHHHH') 
     # Dropdowns for X and Y axes selection
     columns = df.columns.tolist()
     x_axis = st.selectbox('Select column for X-axis', columns)
