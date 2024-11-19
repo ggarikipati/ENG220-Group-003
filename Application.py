@@ -26,7 +26,7 @@ try:
     x_axis = st.selectbox('Select column for X-axis', columns)
     y_axis = st.selectbox('Select column for Y-axis', columns)
     
-    st.line_chart(df[[x_axis, y_axis]].set_index(x_axis))
+    st.bar_chart(df[[x_axis, y_axis]].set_index(x_axis))
 
 
 
