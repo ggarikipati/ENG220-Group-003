@@ -17,9 +17,9 @@ try:
     st.image("OIP.jpg", width=x)
     st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
 
-    with open('example.txt', 'r') as file:
-        content = file.read()
-    st.write(content)
+    #with open('example.txt', 'r') as file:
+    #    content = file.read()
+    #st.write(content)
     
     # Dropdowns for X and Y axes selection
     columns = df.columns.tolist()
