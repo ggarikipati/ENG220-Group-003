@@ -1,34 +1,38 @@
 import streamlit as st
 import pandas as pd
-import random
-import time
-
-
 
 # Title of the app
-st.title('McClure Water Resevoir Level')
+st.title('McClure Water Reservoir Level with Moving Average')
 
-# Load CSV file named "Joey"
+# Load CSV file named "extracted_data.csv"
 try:
     df = pd.read_csv("extracted_data.csv")
     st.write("Data from extracted_data.csv:")
     st.write(df)
-    x = st.slider(';)', min_value=10, max_value=500) 
+
+    # Slider for image width adjustment
+    x = st.slider(';)', min_value=10, max_value=500)
     st.image("OIP.jpg", width=x)
     st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
 
-    #with open('example.txt', 'r') as file:
-    #    content = file.read()
-    #st.write(content)
-    
     # Dropdowns for X and Y axes selection
     columns = df.columns.tolist()
     x_axis = st.selectbox('Select column for X-axis', columns)
     y_axis = st.selectbox('Select column for Y-axis', columns)
-    
+
+    # Bar chart visualization
     st.bar_chart(df[[x_axis, y_axis]].set_index(x_axis))
 
+    # Moving Average computation
+    st.subheader("Moving Average of Selected Column")
+    moving_avg_column = st.selectbox('Select column for Moving Average', columns)
+    window_size = st.slider('Select window size for Moving Average', min_value=2, max_value=50, value=5)
 
+    # Compute moving average
+    if moving_avg_column:
+        df['Moving Average'] = df[moving_avg_column].rolling(window=window_size).mean()
+        st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
+        st.line_chart(df[['Moving Average', moving_avg_column]])
 
 except FileNotFoundError:
-    st.error("The file 'Joey.csv' was not found. Please ensure the file is available in the directory.")
+    st.error("The file 'extracted_data.csv' was not found. Please ensure the file is available in the directory.")
