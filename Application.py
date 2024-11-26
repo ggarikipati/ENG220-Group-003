@@ -15,14 +15,6 @@ try:
     st.image("OIP.jpg", width=x)
     st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
 
-    # Dropdowns for X and Y axes selection
-    columns = df.columns.tolist()
-    x_axis = st.selectbox('Select column for X-axis', columns)
-    y_axis = st.selectbox('Select column for Y-axis', columns)
-
-    # Bar chart visualization
-    st.bar_chart(df[[x_axis, y_axis]].set_index(x_axis))
-
     # Moving Average computation
     st.subheader("Moving Average of Selected Column")
     moving_avg_column = st.selectbox('Select column for Moving Average', columns)
@@ -33,6 +25,16 @@ try:
         df['Moving Average'] = df[moving_avg_column].rolling(window=window_size).mean()
         st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
         st.line_chart(df[['Moving Average', moving_avg_column]])
+    
+    # Dropdowns for X and Y axes selection
+    columns = df.columns.tolist()
+    x_axis = st.selectbox('Select column for X-axis', columns)
+    y_axis = st.selectbox('Select column for Y-axis', columns)
+
+    # Bar chart visualization
+    st.bar_chart(df[[x_axis, y_axis]].set_index(x_axis))
+
+
 
 except FileNotFoundError:
     st.error("The file 'extracted_data.csv' was not found. Please ensure the file is available in the directory.")
