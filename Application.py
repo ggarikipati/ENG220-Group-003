@@ -39,7 +39,7 @@ try:
     st.write(x_axis)
 
     # Bar chart visualization
-    st.bar_chart(df[['Time (Days)', y_axis]].set_index('Time (Days)'))
+    st.bar_chart(df[['Time (Days)', 'Basin Water Level (Acre ft)']].set_index('Time (Days)'))
 
 
 
