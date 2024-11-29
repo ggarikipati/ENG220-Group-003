@@ -26,10 +26,10 @@ try:
     window_size = st.slider('Select window size for Moving Average', min_value=2, max_value=50, value=5)
 
     # Compute moving average
-#    if moving_avg_column:
-#       df['Moving Average'] = df[moving_avg_column].rolling(window=window_size).mean()
-#        st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
-#        st.line_chart(df[['Moving Average', moving_avg_column]])
+    if moving_avg_column:
+       df['Moving Average'] = df[moving_avg_column].rolling(window=window_size).mean()
+        st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
+        st.line_chart(df[['Moving Average', moving_avg_column]])
     
 
 
