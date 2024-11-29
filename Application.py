@@ -25,7 +25,8 @@ try:
     moving_avg_column = st.selectbox('Select column for Moving Average', columns)
     moving_avg_column = 'Basin Water Level (Acre ft)'
     window_size = st.slider('Select window size for Moving Average', min_value=2, max_value=1000, value=5)
-
+    window_size = 1000
+    
     # Compute moving average
     if moving_avg_column:
         df['Moving Average'] = df[moving_avg_column].rolling(window=window_size).mean()
