@@ -39,7 +39,7 @@ try:
     st.write(x_axis)
 
     # Bar chart visualization
-    st.bar_chart(df[[x_axis, y_axis]].set_index(x_axis))
+    st.bar_chart(df[['Time (Days)', y_axis]].set_index(x_axis))
 
 
 
