@@ -23,6 +23,7 @@ try:
         # Moving Average computation
     st.subheader("Moving Average of Selected Column")
     moving_avg_column = st.selectbox('Select column for Moving Average', columns)
+    moving_avg_column = 'Basin Water Level (Acre ft)'
     window_size = st.slider('Select window size for Moving Average', min_value=2, max_value=50, value=5)
 
     # Compute moving average
@@ -32,11 +33,6 @@ try:
     #    st.line_chart(df[['Moving Average', moving_avg_column]])
     
 
-
-    
-    x_axis = st.selectbox('Select column for X-axis', columns)
-    y_axis = st.selectbox('Select column for Y-axis', columns)
-    st.write(x_axis)
 
     # Bar chart visualization
     st.bar_chart(df[['Time (Days)', 'Basin Water Level (Acre ft)']].set_index('Time (Days)'))
