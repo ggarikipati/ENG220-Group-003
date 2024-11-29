@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Title of the app
 st.title('McClure Water Reservoir Level with Moving Average')
@@ -11,13 +12,11 @@ try:
     st.write(df)
 
     # Slider for image width adjustment
-    x = st.slider(';)', min_value=10, max_value=500)
-    st.image("OIP.jpg", width=x)
-    st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
+    #x = st.slider(';)', min_value=10, max_value=500)
+    #st.image("OIP.jpg", width=x)
+    #st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
 
 
-    # Dropdowns for X and Y axes selection
-    columns = df.columns.tolist()
 
 
         # Moving Average computation
@@ -37,6 +36,19 @@ try:
 
     # Bar chart visualization
     st.bar_chart(df[['Time (Days)', 'Basin Water Level (Acre ft)']].set_index('Time (Days)'))
+
+    # Create a DataFrame
+    df = pd.DataFrame(data)
+
+    # Create a bar chart
+    fig, ax = plt.subplots()
+    df.plot(kind='bar', x='Time (Days)', y='Basin Water Level (Acre ft)', ax=ax)
+
+    # Draw a line on the bar chart
+    ax.plot(df['Time (Days)'], df['Basin Water Level (Acre ft)'], color='red', marker='o')
+    
+    # Display the chart in Streamlit
+    st.pyplot(fig)
 
 
 
