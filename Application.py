@@ -24,7 +24,7 @@ try:
     if moving_avg_column:
         df['Moving Average'] = df[moving_avg_column].rolling(window=window_size).mean()
         st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
-        st.line_chart(df[['Moving Average', moving_avg_column]])
+        st.bar_chart(df[['Moving Average', moving_avg_column]])
     
 
 
