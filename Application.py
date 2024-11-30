@@ -14,17 +14,6 @@ try:
     #x = st.slider(';)', min_value=10, max_value=500)
     #st.image("OIP.jpg", width=x)
     #st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
-
-
-
-    moving_avg_column = 'Basin Water Level (Acre ft)'
-    window_size = 1000
-    
-    # Compute moving average
-    if moving_avg_column:
-        df['Moving Average'] = df[moving_avg_column].rolling(window_size).sum()/window_size
-        st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
-        st.line_chart(df[['Time (Days)', moving_avg_column,'Moving Average']].set_index('Time (Days)'), color=["#2491D9","#D51616"])
     
 
 
