@@ -18,7 +18,7 @@ try:
 
 
     moving_avg_column = 'Basin Water Level (Acre ft)'
-    window_size = 1000
+    window_size = 100
     
     # Compute moving average
     if moving_avg_column:
