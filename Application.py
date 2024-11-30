@@ -22,7 +22,7 @@ try:
     
     # Compute moving average
     if moving_avg_column:
-        df['Moving Average'] = df[moving_avg_column].rolling(window=window_size).mean()
+        df['Moving Average'] = df[moving_avg_column].rolling(100).mean()
         st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
         st.bar_chart(df[['Moving Average', moving_avg_column]])
     
