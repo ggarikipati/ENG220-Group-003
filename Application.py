@@ -17,10 +17,6 @@ try:
 
 
 
-
-        # Moving Average computation
-    st.subheader("Moving Average of Selected Column")
-    moving_avg_column = st.selectbox('Select column for Moving Average', columns)
     moving_avg_column = 'Basin Water Level (Acre ft)'
     window_size = st.slider('Select window size for Moving Average', min_value=2, max_value=1000, value=5)
     window_size = 1000
