@@ -24,7 +24,7 @@ try:
     if moving_avg_column:
         df['Moving Average'] = df[moving_avg_column].rolling(window_size).sum()/window_size
         st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
-        st.line_chart(x=df[['Moving Average', moving_avg_column]], y=df[['Time (Days)']])
+        st.line_chart(df[['Moving Average', moving_avg_column]], y=df[['Time (Days)']])
     
 
 
