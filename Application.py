@@ -30,7 +30,13 @@ try:
 
     # Bar chart visualization
     st.bar_chart(df[['Time (Days)', 'Basin Water Level (Acre ft)']].set_index('Time (Days)'))
-
+    moving_avg = st.checkbox('Moving Average')
+    if moving_avg:
+        moving_avg_column = 'Basin Water Level (Acre ft)'
+        window_size = 1000
+        df['Moving Average'] = df[moving_avg_column].rolling(window_size).sum()/window_size
+        st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
+        st.line_chart(df[['Time (Days)', moving_avg_column,'Moving Average']].set_index('Time (Days)'), color=["#2491D9","#D51616"])
 
 
 except FileNotFoundError:
