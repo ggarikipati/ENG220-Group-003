@@ -2,7 +2,7 @@
 Work completed for Engineering Business and Society, taught by Prof. Ramiro Jordan at UNM.
 
 Authors:
-  \nJoseph Ferreri 
+  <br>Joseph Ferreri 
   
   Grace Dean 
   
