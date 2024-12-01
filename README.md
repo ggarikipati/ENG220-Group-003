@@ -13,7 +13,6 @@ This interactive data dashboard uses USGS data to display the level of the McClu
 ```Application.py``` is responsible for all formatting and manipulation of the data,
 <br>```extracted_data.csv``` is our cleaned dataset that is manipulated in ```Application.py```
 
-
 application link: https://eng220-final-project.streamlit.app/
 
 USGS: https://waterdata.usgs.gov/nm/nwis/uv/?site_no=08315500&PARAmeter_cd=72020,62614,62615
