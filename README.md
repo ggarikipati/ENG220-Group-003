@@ -15,3 +15,5 @@ This interactive data dashboard uses USGS data to display the level of the McClu
 
 
 application link: https://eng220-final-project.streamlit.app/
+
+USGS: https://waterdata.usgs.gov/nm/nwis/uv/?site_no=08315500&PARAmeter_cd=72020,62614,62615
