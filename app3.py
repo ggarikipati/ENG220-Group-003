@@ -2,7 +2,14 @@ import streamlit as st
 import pandas as pd
 
 # Title of the app
-st.title('McClure Water Reservoir Level with Moving Average')
+st.title("Group-003")
+
+st.markdown("""
+### McClure Water Reservoir Level with Moving Average
+
+This interactive data dashboard visualizes the water levels of the **McClure Water Reservoir** using **USGS data** collected over the past **17 years**.  
+Users can explore both the raw reservoir level data and an overlaid **moving average** to better observe long-term trends, particularly the gradual decline in water levels.
+""")
 
 # Load CSV file named "extracted_data.csv"
 try:
