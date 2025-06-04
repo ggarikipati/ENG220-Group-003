@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
+# Group 003 - McClure Reservoir Water Level Dashboard
+
 import streamlit as st
 import pandas as pd
+import os
 
-# Title of the app
+# Title
 st.title("Group-003")
 
 st.markdown("""
@@ -11,30 +15,30 @@ This interactive data dashboard visualizes the water levels of the **McClure Wat
 Users can explore both the raw reservoir level data and an overlaid **moving average** to better observe long-term trends, particularly the gradual decline in water levels.
 """)
 
-# Load CSV file named "extracted_data.csv"
 try:
-    df = pd.read_csv("extracted_data.csv")
-    st.write("Data from extracted_data.csv:")
-    st.write(df)
+    # Load CSV file relative to this script
+    current_dir = os.path.dirname(__file__)
+    csv_path = os.path.join(current_dir, "extracted_data.csv")
+    df = pd.read_csv(csv_path)
 
-    # Slider for image width adjustment
-    #x = st.slider(';)', min_value=10, max_value=500)
-    #st.image("OIP.jpg", width=x)
-    #st.write('https://docs.streamlit.io/get-started/fundamentals/main-concepts')
-    
+    st.subheader("Reservoir Level Data")
+    st.dataframe(df)
 
-
-    # Bar chart visualization
+    # Basic bar chart
+    st.subheader("Water Level Over Time")
     st.bar_chart(df[['Time (Days)', 'Basin Water Level (Acre ft)']].set_index('Time (Days)'))
-    moving_avg = st.checkbox('Moving Average')
-    if moving_avg:
+
+    # Option to enable moving average
+    if st.checkbox('Show Moving Average'):
         moving_avg_column = 'Basin Water Level (Acre ft)'
         window_size = 1000
-        df['Moving Average'] = df[moving_avg_column].rolling(window_size).sum()/window_size
-        st.write(f"Moving Average for {moving_avg_column} (Window Size: {window_size}):")
-        #st.line_chart(df[['Time (Days)', moving_avg_column,'Moving Average']].set_index('Time (Days)'), color=["#2491D9","#D51616"])
-        st.line_chart(df[['Time (Days)', 'Moving Average']].set_index('Time (Days)'), color=["#D51616"])
 
+        df['Moving Average'] = df[moving_avg_column].rolling(window_size).mean()
+
+        st.subheader(f"Moving Average (Window: {window_size})")
+        st.line_chart(df[['Time (Days)', 'Moving Average']].set_index('Time (Days)'))
+
+    st.info("Use the checkbox above to visualize long-term water level trends.")
 
 except FileNotFoundError:
-    st.error("The file 'extracted_data.csv' was not found. Please ensure the file is available in the directory.")
+    st.error("The file 'extracted_data.csv' was not found. Please ensure it is in the same folder as this script.")
